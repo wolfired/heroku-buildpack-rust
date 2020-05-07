@@ -1,4 +1,5 @@
 #!/bin/sh
+# bin/compile BUILD_DIR CACHE_DIR ENV_DIR
 
 echo ">>>>> into compile shell"
 

@@ -1,3 +1,4 @@
 #!/bin/sh
+# bin/release BUILD_DIR
 
 echo ">>>>> into release shell"
