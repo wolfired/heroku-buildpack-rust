@@ -13,13 +13,14 @@ echo DIR_ENV=$DIR_ENV
 export RUSTUP_HOME="$DIR_CACHE/.rustup"
 export CARGO_HOME="$DIR_CACHE/.cargo"
 
-BUILD_PATH="$DIR_CACHE/target"
+BUILD_PATH="$DIR_CACHE"
 
 if [ ! -d "$CARGO_HOME" ] || [ ! -d "$CARGO_HOME/bin" ] || [ ! -f "$CARGO_HOME/bin/rustup" ]; then
     echo "installing rustup"
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --profile minimal --default-toolchain nightly
 fi
 
+echo $PATH
 export PATH="$CARGO_HOME/bin":$PATH
 
 rustup self update
@@ -28,5 +29,4 @@ rustup update --no-self-update
 cd $DIR_BUILD
 
 cargo build --target-dir $BUILD_PATH --release
-
-cd ..
+cp "$BUILD_PATH/target/release/slitu" "$DIR_BUILD/target/release/"
