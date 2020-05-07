@@ -4,6 +4,6 @@ DIR_BUILD=${1:-}
 DIR_CACHE=${2:-}
 DIR_ENV=${3:-}
 
-echo $DIR_BUILD
-echo $DIR_CACHE
-echo $DIR_ENV
+echo print: $DIR_BUILD
+echo print: $DIR_CACHE
+echo print: $DIR_ENV
