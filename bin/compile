@@ -19,8 +19,10 @@ ls -al $DIR_CACHE
 
 if [ ! -d "$CARGO_HOME" ] || [ ! -d "$CARGO_HOME/bin" ] || [ ! -f "$CARGO_HOME/bin/rustup" ]; then
     echo "installing rustup"
-    # curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --profile minimal --default-toolchain nightly
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --profile minimal --default-toolchain nightly
 fi
+
+ls -al $DIR_CACHE
 
 echo $PATH
 export PATH="$CARGO_HOME/bin":$PATH
