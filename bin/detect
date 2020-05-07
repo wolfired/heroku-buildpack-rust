@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # bin/detect BUILD_DIR
 
 echo ">>>>> into detcet shell"
