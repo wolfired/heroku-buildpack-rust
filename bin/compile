@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # bin/compile BUILD_DIR CACHE_DIR ENV_DIR
 
 echo ">>>>> into compile shell"
@@ -6,10 +6,6 @@ echo ">>>>> into compile shell"
 DIR_BUILD=${1:-}
 DIR_CACHE=${2:-}
 DIR_ENV=${3:-}
-
-echo DIR_BUILD=$DIR_BUILD
-echo DIR_CACHE=$DIR_CACHE
-echo DIR_ENV=$DIR_ENV
 
 export RUSTUP_HOME="$DIR_CACHE/.rustup"
 export CARGO_HOME="$DIR_CACHE/.cargo"
@@ -35,5 +31,3 @@ mkdir -p $BIN_PATH
 cargo build --target-dir $BUILD_PATH --release
 chmod 766 $BUILD_EXEC
 cp "$BUILD_EXEC" "$BIN_PATH/"
-
-echo "end ----------"
