@@ -1,6 +1,6 @@
 #!/bin/sh
 
-DIR_BUILD=${1:?need a build dir}
+DIR_BUILD=${1:-}
 
 if [ -f "$DIR_BUILD/Cargo.toml" ]; then
     echo Rust
