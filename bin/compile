@@ -27,8 +27,8 @@ ls -al $DIR_CACHE
 echo $PATH
 export PATH="$CARGO_HOME/bin":$PATH
 
-# rustup self update
-# rustup update --no-self-update
+rustup self update
+rustup update --no-self-update
 
 cd $DIR_BUILD
 
