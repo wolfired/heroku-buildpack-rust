@@ -13,7 +13,7 @@ echo DIR_ENV=$DIR_ENV
 export RUSTUP_HOME="$DIR_CACHE/.rustup"
 export CARGO_HOME="$DIR_CACHE/.cargo"
 
-BUILD_PATH="$DIR_CACHE"
+BUILD_PATH="$DIR_CACHE/target"
 
 if [ ! -d "$CARGO_HOME" ] || [ ! -d "$CARGO_HOME/bin" ] || [ ! -f "$CARGO_HOME/bin/rustup" ]; then
     echo "installing rustup"
