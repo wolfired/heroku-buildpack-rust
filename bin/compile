@@ -15,8 +15,7 @@ export CARGO_HOME="$DIR_CACHE/.cargo"
 
 BUILD_PATH="$DIR_CACHE/target"
 
-whereis ls
-ls $DIR_CACHE
+ls -al $DIR_CACHE
 
 if [ ! -d "$CARGO_HOME" ] || [ ! -d "$CARGO_HOME/bin" ] || [ ! -f "$CARGO_HOME/bin/rustup" ]; then
     echo "installing rustup"
