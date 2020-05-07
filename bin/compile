@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# bin/compile BUILD_DIR CACHE_DIR ENV_DIR
+# usage: bin/compile <build-dir> <cache-dir> <env-dir>
 
 DIR_BUILD=${1:-}
 DIR_CACHE=${2:-}

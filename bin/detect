@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# bin/detect BUILD_DIR
+# usage: bin/compile <build-dir>
 
 DIR_BUILD=${1:-}
 

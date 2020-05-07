@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-# bin/release BUILD_DIR
+# usage: bin/release <build-dir>
