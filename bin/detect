@@ -1,0 +1,10 @@
+#!/bin/sh
+
+DIR_BUILD=${1:?need a build dir}
+
+if [ -f "$DIR_BUILD/Cargo.toml" ]; then
+    echo Rust
+    exit 0
+else
+    exit 1
+fi

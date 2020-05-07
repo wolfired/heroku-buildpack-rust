@@ -1,0 +1,5 @@
+#!/bin/sh
+
+DIR_BUILD=${1:?need a build dir}
+DIR_CACHE=${2:?need a cache dir}
+DIR_ENV=${3:?need a env dir}
