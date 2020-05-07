@@ -13,8 +13,6 @@ echo DIR_ENV=$DIR_ENV
 export RUSTUP_HOME="$DIR_CACHE/.rustup"
 export CARGO_HOME="$DIR_CACHE/.cargo"
 
-BUILD_PATH="$DIR_CACHE/target"
-
 ls -al $DIR_CACHE
 
 if [ ! -d "$CARGO_HOME" ] || [ ! -d "$CARGO_HOME/bin" ] || [ ! -f "$CARGO_HOME/bin/rustup" ]; then
@@ -32,5 +30,11 @@ rustup update --no-self-update
 
 cd $DIR_BUILD
 
-# cargo build --target-dir $BUILD_PATH --release
-# cp "$BUILD_PATH/target/release/slitu" "$DIR_BUILD/target/release/"
+BUILD_PATH="$DIR_CACHE/target"
+BUILD_EXEC="$BUILD_PATH/release/slitu"
+
+BIN_PATH="$DIR_BUILD/bin/release"
+mkdir -p $BIN_PATH
+
+cargo build --target-dir $BUILD_PATH --release
+cp "$BUILD_EXEC" "$BIN_PATH/"
