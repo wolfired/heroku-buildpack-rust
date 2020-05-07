@@ -16,6 +16,7 @@ CARGO_HOME="$DIR_CACHE/.cargo"
 if [ ! -f "$CARGO_HOME/bin/rustup" ]; then
     echo "installing rustup"
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --profile minimal --default-toolchain nightly
+    export PATH="$CARGO_HOME/bin":$PATH
 fi
 
 rustup self update
@@ -24,5 +25,7 @@ rustup update --no-self-update
 pushd $DIR_BUILD
 
 cargo build --release
+
+ls -al $DIR_BUILD
 
 popd
