@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 # bin/compile BUILD_DIR CACHE_DIR ENV_DIR
 
-echo ">>>>> into compile shell"
-
 DIR_BUILD=${1:-}
 DIR_CACHE=${2:-}
 DIR_ENV=${3:-}
@@ -11,11 +9,10 @@ export RUSTUP_HOME="$DIR_CACHE/.rustup"
 export CARGO_HOME="$DIR_CACHE/.cargo"
 
 if [ ! -d "$CARGO_HOME" ] || [ ! -d "$CARGO_HOME/bin" ] || [ ! -f "$CARGO_HOME/bin/rustup" ]; then
-    echo "installing rustup"
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --profile minimal --default-toolchain nightly
 fi
 
-export PATH="$CARGO_HOME/bin":$PATH
+source "$CARGO_HOME/env"
 
 rustup self update
 rustup update --no-self-update

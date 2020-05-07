@@ -1,11 +1,7 @@
 #!/usr/bin/env bash
 # bin/detect BUILD_DIR
 
-echo ">>>>> into detcet shell"
-
 DIR_BUILD=${1:-}
-
-echo DIR_BUILD=$DIR_BUILD
 
 if [ -f "$DIR_BUILD/Cargo.toml" ]; then
     echo Rust
