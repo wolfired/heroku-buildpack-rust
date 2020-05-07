@@ -38,4 +38,4 @@ mkdir -p $BIN_PATH
 cargo build --target-dir $BUILD_PATH --release
 cp "$BUILD_EXEC" "$BIN_PATH/"
 
-ls -al $DIR_CACHE
+ls -al $BIN_PATH
