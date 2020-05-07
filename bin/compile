@@ -35,3 +35,5 @@ mkdir -p $BIN_PATH
 cargo build --target-dir $BUILD_PATH --release
 chmod 766 $BUILD_EXEC
 cp "$BUILD_EXEC" "$BIN_PATH/"
+
+echo "end ----------"
