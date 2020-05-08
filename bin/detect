@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-# usage: bin/compile <build-dir>
+# usage: bin/detect <build-dir>
 
-DIR_BUILD=${1:-}
+DIR_BUILD=${1:?}
 
-if [ -f "$DIR_BUILD/Cargo.toml" ]; then
+if [[ -f "$DIR_BUILD/Cargo.toml" ]]; then
     echo Rust
     exit 0
 else

@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 # usage: bin/compile <build-dir> <cache-dir> <env-dir>
 
-DIR_BUILD=${1:-}
-DIR_CACHE=${2:-}
-DIR_ENV=${3:-}
+DIR_BUILD=${1:?}
+DIR_CACHE=${2:?}
+DIR_ENV=${3:?}
 
 export RUSTUP_HOME="$DIR_CACHE/.rustup"
 export CARGO_HOME="$DIR_CACHE/.cargo"
 
-if [ ! -d "$CARGO_HOME" ] || [ ! -d "$CARGO_HOME/bin" ] || [ ! -f "$CARGO_HOME/bin/rustup" ]; then
+if [[ ! -d "$CARGO_HOME" ]] || [[ ! -d "$CARGO_HOME/bin" ]] || [[] ! -f "$CARGO_HOME/bin/rustup" ]]; then
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --profile minimal --default-toolchain nightly
 fi
 
