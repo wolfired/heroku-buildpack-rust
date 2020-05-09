@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# usage: bin/release <build-dir>
+
+DIR_BUILD=${1:?}

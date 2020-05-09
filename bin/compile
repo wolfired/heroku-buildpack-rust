@@ -1,9 +1,26 @@
-#!/bin/sh
+#!/usr/bin/env bash
+# usage: bin/compile <build-dir> <cache-dir> <env-dir>
 
-DIR_BUILD=${1:-}
-DIR_CACHE=${2:-}
-DIR_ENV=${3:-}
+DIR_BUILD=${1:?}
+DIR_CACHE=${2:?}
+DIR_ENV=${3:?}
 
-echo $DIR_BUILD
-echo $DIR_CACHE
-echo $DIR_ENV
+export RUSTUP_HOME="$DIR_CACHE/.rustup"
+export CARGO_HOME="$DIR_CACHE/.cargo"
+
+if [[ ! -d "$CARGO_HOME" ]] || [[ ! -d "$CARGO_HOME/bin" ]] || [[] ! -f "$CARGO_HOME/bin/rustup" ]]; then
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --profile minimal --default-toolchain nightly
+fi
+
+source "$CARGO_HOME/env"
+
+rustup self update
+rustup update --no-self-update
+
+BUILD_PATH="$DIR_CACHE/target"
+
+BIN_PATH="$DIR_BUILD/bin"
+mkdir -p "$BIN_PATH"
+
+cargo build -Z unstable-options --manifest-path "$DIR_BUILD/Cargo.toml" --target-dir "$BUILD_PATH" --out-dir "$BIN_PATH" --release
+find "$BIN_PATH" -maxdepth 1 -type f -executable -exec chmod 766 {} \;
