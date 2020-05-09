@@ -9,7 +9,7 @@ if [[ -d "./$APP_NAME" ]]; then
     exit 1
 fi
 
-heroku apps:create $APP_NAME --buildpack https://github.com/wolfired/heroku-buildpack-rust#develop
+heroku apps:create $APP_NAME --buildpack https://github.com/wolfired/heroku-buildpack-rust
 if [[ 0 -ne $? ]]; then
     exit 1
 fi
