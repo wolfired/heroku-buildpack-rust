@@ -12,6 +12,9 @@ if [[ ! -d "$CARGO_HOME" ]] || [[ ! -d "$CARGO_HOME/bin" ]] || [[ ! -f "$CARGO_H
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --profile minimal --default-toolchain nightly
 fi
 
+ls "$CARGO_HOME"
+ls "$CARGO_HOME/bin"
+
 source "$CARGO_HOME/env"
 
 rustup self update
