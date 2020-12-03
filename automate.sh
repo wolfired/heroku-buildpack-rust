@@ -3,6 +3,8 @@
 # This is a script for auto create a heroku app which use rust lang, and use this buildpack.
 
 APP_NAME=${1:?you need pass a app name}
+YOUR_NAME=${2:?you need pass your name}
+YOUR_EMAIL=${3:?you need pass your email}
 
 if [[ -d "./$APP_NAME" ]]; then
     echo Dir \"$APP_NAME\" is already existed
@@ -46,13 +48,13 @@ cat <<EOF > ./Cargo.toml
 [package]
 name = "$APP_NAME"
 version = "0.1.0"
-authors = ["YourName <your@email.com>"]
+authors = ["$YOUR_NAME <$YOUR_EMAIL>"]
 edition = "2018"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-rocket = "0.4.4"
+rocket = "0.4.6"
 EOF
 
 cat <<EOF > ./Procfile

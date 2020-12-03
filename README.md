@@ -8,4 +8,4 @@ At first you need to install heroku cli and login.
 
 Run:
 
-`./automate.sh ChangeToYourAppName`
+`./automate.sh AppName YourName YourEmail`
