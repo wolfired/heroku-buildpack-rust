@@ -21,6 +21,6 @@ BUILD_PATH="$DIR_CACHE/target"
 
 BIN_PATH="$DIR_BUILD/bin"
 mkdir -p "$BIN_PATH"
-
+ls -al $DIR_BUILD
 cargo build -Z unstable-options --manifest-path "$DIR_BUILD/Cargo.toml" --target-dir "$BUILD_PATH" --out-dir "$BIN_PATH" --release
 find "$BIN_PATH" -maxdepth 1 -type f -executable -exec chmod 766 {} \;
