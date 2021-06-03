@@ -16,12 +16,21 @@ if [[ 0 -ne $? ]]; then
     exit 1
 fi
 
-heroku config:set PORT=80 -a $APP_NAME
+# heroku config:set PORT=80 -a $APP_NAME
 heroku git:clone -a $APP_NAME
 
 cd $APP_NAME
 
 cargo init --vcs none
+
+mkdir -p .cargo
+cat <<EOF > ./.cargo/config.toml
+[unstable]
+unstable-options=true
+
+[build]
+out-dir="./bin"
+EOF
 
 cat <<EOF > ./src/main.rs
 #![feature(proc_macro_hygiene, decl_macro)]
@@ -41,6 +50,8 @@ fn main() {
 EOF
 
 cat <<EOF > ./.gitignore
+/.vscode
+/bin
 /target
 EOF
 
@@ -55,6 +66,10 @@ edition = "2018"
 
 [dependencies]
 rocket = "0.4.6"
+EOF
+
+cat <<EOF > ./env
+PORT=80
 EOF
 
 cat <<EOF > ./Procfile
