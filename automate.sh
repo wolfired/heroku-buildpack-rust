@@ -65,7 +65,7 @@ edition = "2018"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-rocket = "0.4.6"
+rocket = "0.4.10"
 EOF
 
 cat <<EOF > ./env
